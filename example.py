@@ -10,41 +10,46 @@ from src.follow_protocol import follow_protocol
 from src.unfollow_protocol import unfollow_protocol
 
 bot = InstaBot(
-    login="username",
-    password="password",
-    like_per_day=1000,
-    comments_per_day=200,
-    tag_list=['antofagasta', 'calama', 'tocopilla', 'taltal', 'antofa'],
+    login="",
+    password="",
+    like_per_day=2000,
+    comments_per_day=800,#
+    tag_list=['autocultivo', 'mariguana', 'marihuana', 'yocultivo', 'autocultivochile', 'chileweed', 'argentinaweed', 'yocultivomismedicinas' ],
+    # tag_list=['cultivo', 'cannabis', 'sativa', 'cultivocannabis', 'terpenos', 'indica', 'weedchile', 'yocultivo' ],
     tag_blacklist=['rain', 'thunderstorm'],
     user_blacklist={},
     max_like_for_one_tag=100,
-    follow_per_day=200,
+    follow_per_day=800,
     follow_time=1 * 60,
-    unfollow_per_day=0,
-    unfollow_break_min=0,
-    unfollow_break_max=0,
+    # follow_time=5 * 60 * 60,
+    unfollow_per_day=1000,
+    unfollow_break_min=10,
+    unfollow_break_max=20,
     log_mod=0,
     proxy='',
     # List of list of words, each of which will be used to generate comment
     # For example: "This shot feels wow!"
-    comment_list=[["Te invitamos a vivir Juventus Camp", "Te invitamos a conocer Juventus Camp", "Te invitamos a la experiencia Juventus Camp"],
-                  ["Antofagasta","10 al 14 de Diciembre","Link en nuestra bio"],  
+    # comment_list=[["Hola, muy buen aporte! te invitamos a seguirnos y visitar nuestra app (link en bio) tenemos MapaWeed, MercadoWeed, Seguimientos Cannabicos, noticias y más! conócenos y descarga nuestra app para Android y pronto para iOS! Buenos humos!"]],
+    # comment_list=[["Woow", "Maravilloso", "Excelente"],
+
+    comment_list=[["Excelente", "Maravilloso", "Muy bien"],
                   ["!","!!","!!!"],
-                  ["👫⚽", "⚽🔥", "⚽😄"]],
+                  ["🚀", "🔥", "😄"]],
+
     # Use unwanted_username_list to block usernames containing a string
     ## Will do partial matches; i.e. 'mozart' will block 'legend_mozart'
     ### 'free_followers' will be blocked because it contains 'free'
     # unwanted_username_list=[
-    #    'second', 'stuff', 'art', 'project', 'love', 'life', 'food', 'blog',
-    #    'free', 'keren', 'photo', 'graphy', 'indo', 'travel', 'art', 'shop',
-    #    'store', 'sex', 'toko', 'jual', 'online', 'murah', 'jam', 'kaos',
-    #    'case', 'baju', 'fashion', 'corp', 'tas', 'butik', 'grosir', 'karpet',
-    #    'sosis', 'salon', 'skin', 'care', 'cloth', 'tech', 'rental', 'kamera',
-    #    'beauty', 'express', 'kredit', 'collection', 'impor', 'preloved',
-    #    'follow', 'follower', 'gain', '.id', '_id', 'bags'
+    #     'second', 'stuff', 'art', 'project', 'love', 'life', 'food', 'blog',
+    #     'free', 'keren', 'photo', 'graphy', 'indo', 'travel', 'art', 'shop',
+    #     'store', 'sex', 'toko', 'jual', 'online', 'murah', 'jam', 'kaos',
+    #     'case', 'baju', 'fashion', 'corp', 'tas', 'butik', 'grosir', 'karpet',
+    #     'sosis', 'salon', 'skin', 'care', 'cloth', 'tech', 'rental', 'kamera',
+    #     'beauty', 'express', 'kredit', 'collection', 'impor', 'preloved',
+    #     'follow', 'follower', 'gain', '.id', '_id', 'bags'
     # ],
     # unfollow_whitelist=['example_user_1', 'example_user_2']
-)
+    )
 while True:
 
     #print("# MODE 0 = ORIGINAL MODE BY LEVPASHA")
