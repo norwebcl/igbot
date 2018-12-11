@@ -285,11 +285,20 @@ class InstaBot:
             'X-Requested-With': 'XMLHttpRequest'
         })
 
+        # r = self.s.get(self.url)
+       # self.s.headers.update({'X-CSRFToken': r.cookies['csrftoken']})
+       # time.sleep(5 * random.random())
+       # login = self.s.post(
+       #     self.url_login, data=self.login_post, allow_redirects=True)
+       # self.s.headers.update({'X-CSRFToken': login.cookies['csrftoken']})
+       # self.csrftoken = login.cookies['csrftoken']
+        #ig_vw=1536; ig_pr=1.25; ig_vh=772;  ig_or=landscape-primary;
+
         r = self.s.get(self.url)
+        csrf_token = re.search('(?<=\"csrf_token\":\")\w+', r.text).group(0)
         self.s.headers.update({'X-CSRFToken': r.cookies['csrftoken']})
         time.sleep(5 * random.random())
-        login = self.s.post(
-            self.url_login, data=self.login_post, allow_redirects=True)
+        login = self.s.post(self.url_login, data=self.login_post, allow_redirects=True)
         self.s.headers.update({'X-CSRFToken': login.cookies['csrftoken']})
         self.csrftoken = login.cookies['csrftoken']
         #ig_vw=1536; ig_pr=1.25; ig_vh=772;  ig_or=landscape-primary;
@@ -644,8 +653,9 @@ class InstaBot:
                     log_string = "Followed: %s #%i." % (user_id,
                                                         self.follow_counter)
                     self.write_log(log_string)
-                    username = self.get_username_by_user_id(user_id=user_id)
-                    insert_username(self, user_id=user_id, username=username)
+                    #username = self.get_username_by_user_id(user_id=user_id)
+                    #insert_username(self, user_id=user_id, username=username)
+                    insert_username(self, user_id=user_id, username=user_id)
                 return follow
             except:
                 logging.exception("Except on follow!")
